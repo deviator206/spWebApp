@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset="utf-8" />
+ 	<title> Market Yard </title>
+ <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+ <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+ 	<script src="lib/jquery-1.11.3.js"></script>
+ 	<script src="lib/js/bootstrap.js"></script>
+ 	<script src="lib/knockout-3.3.0.js"></script>
+
+ 	<style type="text/css">
+ 	.gridBG{
+ 		    min-height: 7em;
+		    text-align: center;
+		    vertical-align: middle;
+		    padding-top: 3em;
+		    cursor: pointer;
+
+ 	}
+ 	.gridBGOddColor{
+ 		background-color: rgba(204, 183, 34, 0.78);
+ 	}
+
+ 	.gridBGEvenColor{
+ 		background-color: rgba(149, 220, 213, 0.78);
+ 	}
+ 	.sideSection{
+ 		background-color: rgba(149, 220, 213, 0.78);	
+ 	}
+
+ 	.sellSection{
+ 		background-color: rgba(204, 183, 34, 0.78);
+ 	}
+
+ 	</style>
+ </head>
+ <body>
+ 		<header class="h1 text-center">
+ 			 मार्केट यार्ड
+ 		</header>
+
+ 		
+    <section id="dashboard" class="container hideMeMan">
+
+    		<div class="row">
+	    		<div class="gridBG col-xs-4 col-md-4 lead gridBGOddColor " data-bind="click: $root.dashboardClickHandler ,attr:{id:'customerInfo'}">ग्राहक माहिती</div>
+	    		<div class="gridBG col-xs-4 col-md-4 lead gridBGEvenColor" data-bind="click: $root.dashboardClickHandler ,attr:{id:'farmerInfo'}">शेतकरी माहिती</div>
+	    		<div class="gridBG col-xs-4 col-md-4 lead gridBGOddColor" data-bind="click: $root.dashboardClickHandler ,attr:{id:'dailyTransaction'}">दररोज काम</div>
+    		</div>
+    		<div class="row">
+	    		<div class="gridBG col-xs-4 col-md-4 lead gridBGEvenColor" data-bind="click: $root.dashboardClickHandler ,attr:{id:'businessAnalysis'}">व्यवसाय विश्लेषण</div>
+	    		<div class="gridBG col-xs-8 col-md-8 lead gridBGOddColor" data-bind="click: $root.dashboardClickHandler ,attr:{id:'marketYardConfig'}">मार्केट यार्ड संरचना</div>
+	    		
+    		</div>
+    	</section>
+
+
+    	<section id="dailyTransactionPage" class="container hideMeMan">
+    		<div class="row">
+    			<div class="col-lg-8">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Search for...">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button">नवीन शेतकरी!</button>
+			      </span>
+			    </div><!-- /input-group -->
+    		</div>
+    		<hr/>
+    		<div class="row">
+    			<ul class="list-group">
+				  <li class="list-group-item row">
+				   <span class="col-md-6"> मराठीतून इंग्रजीत  </span>
+				    <span class="btn btn-default">निवडा</span>
+				  </li>
+
+				  <li class="list-group-item row">
+				   <span class="col-md-6"> मराठीतून इंग्रजीत  </span>
+				    <span class="btn btn-default">निवडा</span>
+				  </li>
+
+
+				  <li class="list-group-item row">
+				   <span class="col-md-6"> मराठीतून इंग्रजीत  </span>
+				    <span class="btn btn-default">निवडा</span>
+				  </li>
+
+				  <li class="list-group-item row">
+				   <span class="col-md-6"> मराठीतून इंग्रजीत  </span>
+				    <span class="btn btn-default btn-primary" data-bind="click:$root.todaysTransactionClickHandler">निवडा</span>
+				  </li>
+				</ul>
+    		</div>
+    	</section>
+
+    	<section id="startTransactionPage" class="container hideMeMan">
+    		 <div class="row">
+    		 		<div class="col-md-4 sideSection">
+    		 			<div class=" text-center">	
+    		 			<div class="row"> 
+    		 						<span class="h2"> Farmer Name </span> 
+    		 			</div>
+    		 			<div class="row text-left">
+    		 				<span class="h5"> Address  : Khese park </span>	
+    		 			</div>
+    		 			<div class="row text-left">
+    		 				<span class="h5">  Phone number : 9087875645 </span>
+    		 			</div>	
+    		 			<div class="row text-left">
+    		 				<span class="h5">  Current Payment : 1000 INR </span>
+    		 			</div>	
+    		 			</div>	
+    		 			<hr/>
+    		 			<div class="row"> 
+    		 						<span class="lead">Farmer Product Details</span>
+    		 			</div>
+
+
+    		 			<div class="row"> 
+    		 				<div class="table-responsive">  <table class="table">
+							    <thead>
+							      <tr>
+							        <th>Product Name</th>
+							        <th>QTY</th>
+							        <th>Price</th>
+							        <th>Add</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td><input type="text" class="form-control" /></td>
+							        <td><input type="text" class="form-control" /></td>
+							        <td><input type="text" class="form-control" /></td>
+							        <td><input type="button" value ="Save "class="form-control btn btn-default" /> </td>
+							      </tr>
+							    </tbody>
+							  </table>
+							  </div>		
+    		 			</div>
+
+
+    		 			<div class="row"> 
+    		 					<div class="table-responsive">  <table class="table">
+							    <thead>
+							      <tr>
+							        <th>#</th>
+							        <th>Product </th>
+							        <th>Qty</th>
+							        <th>Price</th>
+							        
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td>1</td>
+							        <td>Pomogrante</td>
+							        <td>35</td>
+							        <td>13,000</td>
+							        
+							      </tr>
+							    </tbody>
+							  </table>
+							  </div>
+    		 			</div>	
+    		 		</div>
+    		 		<div class="col-md-1"></div>
+    		 		<div  class="col-md-6 sellSection">
+
+
+    		 			<div class="row">
+    		 				<div class="table-responsive">  <table class="table">
+							    <thead>
+							      <tr>
+							        
+							        <th>Customer Name</th>
+							        <th>Product Name</th>
+							        <th>QTY</th>
+							        <th>Price</th>
+							        <th>Add</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td><input type="text" class="form-control" /></td>
+							        <td>
+					<select class="dropdown">
+						<option>Mango</options>	
+							<option>Onion</options>
+								<option>Pomo</options>
+									<option>Apples</options>
+				    
+  </select>
+</td>
+							        <td><input type="text" class="form-control" /></td>
+							        <td><input type="text" class="form-control" readonly value="2000" /></td>
+							        <td><input type="button" value ="Save "class="form-control btn btn-default" /> </td>
+							      </tr>
+							    </tbody>
+							  </table>
+							  </div>
+    		 			</div>
+    		 			<div class="row">
+    		 				<div class="table-responsive">  <table class="table">
+							    <thead>
+							      <tr>
+							        <th>#</th>
+							        <th>Customer Name</th>
+							        <th>Product </th>
+							        <th>Qty</th>
+							        <th>Price</th>
+							        
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td>1</td>
+							        <td>Anna</td>
+							        <td>Pomogrante</td>
+							        <td>35</td>
+							        <td>13,000</td>
+							        
+							      </tr>
+							    </tbody>
+							  </table>
+							  </div>
+    		 			</div>
+    		 		</div>
+
+    		 </div>
+    		
+    	</section>
+
+    	<script src="main.js"></script>
+
+ </body>
+
+</html>
